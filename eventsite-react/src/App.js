@@ -9,12 +9,14 @@ import Login from "./components/login.component";
 import Register from "./components/register.component";
 // import Home from "./components/home.component";
 import Profile from "./components/profile.component";
-import BoardUser from "./components/board-user.component";
+// import BoardUser from "./components/board-user.component";
 // import BoardAdmin from "./components/board-admin.component";
 
 import AddEvent from "./components/add-event.component";
 import Event from "./components/event.component";
 import EventsList from "./components/events-list.component";
+import EventsUserList from "./components/events-userList.component";
+
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
@@ -121,7 +123,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
-            <Route path="/user" component={BoardUser} />
+            <Route path="/user" component={EventsUserList} />
             <Route path="/admin" component={EventsList} />
             <Route path="/add" component={AddEvent} />
             <Route path="/events/:id" component={Event} />
