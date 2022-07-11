@@ -208,7 +208,7 @@ export default class EventsList extends Component {
                 <label>
                   <strong>price:</strong>
                 </label>{" "}
-                {currentEvent.price}
+                Rs. {currentEvent.price}
               </div>
 
               <div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import EventDataService from "../services/event.userService";
-// import { Link } from "react-router-dom";
 
 export default class EventsUserList extends Component {
   constructor(props) {
@@ -205,7 +204,7 @@ export default class EventsUserList extends Component {
                       <td>{currentEvent.endTime}</td>
                       <td>{currentEvent.description}</td>
                       {/* <td>{currentEvent.availability}</td> */}
-                      <td>{currentEvent.price}</td>
+                      <td>Rs.{currentEvent.price}</td>
                       <td>
                         {currentEvent.booked ? (
                           <button

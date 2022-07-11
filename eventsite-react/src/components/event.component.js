@@ -15,6 +15,7 @@ export default class Event extends Component {
     this.onChangePrice = this.onChangePrice.bind(this);
     this.getEvent = this.getEvent.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
+    
     this.updateEvent = this.updateEvent.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
 

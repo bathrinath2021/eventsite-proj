@@ -7,10 +7,9 @@ import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-// import Home from "./components/home.component";
 import Profile from "./components/profile.component";
-// import BoardUser from "./components/board-user.component";
-// import BoardAdmin from "./components/board-admin.component";
+
+
 
 import AddEvent from "./components/add-event.component";
 import Event from "./components/event.component";
@@ -18,7 +17,7 @@ import EventsList from "./components/events-list.component";
 import EventsUserList from "./components/events-userList.component";
 
 
-// import AuthVerify from "./common/auth-verify";
+import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 
 class App extends Component {
@@ -130,7 +129,7 @@ class App extends Component {
           </Switch>
         </div>
 
-        { /*<AuthVerify logOut={this.logOut}/> */ }
+        { <AuthVerify logOut={this.logOut}/> }
       </div>
       
     );
