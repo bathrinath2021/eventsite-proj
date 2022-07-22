@@ -15,7 +15,7 @@ export default class Event extends Component {
     this.onChangePrice = this.onChangePrice.bind(this);
     this.getEvent = this.getEvent.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
-    
+
     this.updateEvent = this.updateEvent.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
 
@@ -44,7 +44,7 @@ export default class Event extends Component {
   onChangeTitle(e) {
     const title = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -58,7 +58,7 @@ export default class Event extends Component {
   onChangeVenueName(e) {
     const venueName = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -71,7 +71,7 @@ export default class Event extends Component {
   onChangeVenueAddress(e) {
     const venueAddress = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -84,7 +84,7 @@ export default class Event extends Component {
   onChangeDateOfEvent(e) {
     const dateOfEvent = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -97,7 +97,7 @@ export default class Event extends Component {
   onChangeStartTime(e) {
     const startTime = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -110,7 +110,7 @@ export default class Event extends Component {
   onChangeEndTime(e) {
     const endTime = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -123,7 +123,7 @@ export default class Event extends Component {
   onChangeAvailability(e) {
     const availability = e.target.value;
 
-    this.setState(function(prevState){
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -136,7 +136,7 @@ export default class Event extends Component {
   onChangePrice(e) {
     const price = e.target.value;
 
-    this.setState(function(prevState){
+    this.setState(function (prevState) {
       return {
         currentEvent: {
           ...prevState.currentEvent,
@@ -150,7 +150,7 @@ export default class Event extends Component {
 
   onChangeDescription(e) {
     const description = e.target.value;
-    
+
     this.setState(prevState => ({
       currentEvent: {
         ...prevState.currentEvent,
@@ -218,7 +218,7 @@ export default class Event extends Component {
       });
   }
 
-  deleteEvent() {    
+  deleteEvent() {
     EventDataService.delete(this.state.currentEvent.id)
       .then(response => {
         console.log(response.data);
@@ -248,9 +248,9 @@ export default class Event extends Component {
                   onChange={this.onChangeTitle}
                 />
               </div>
-            {/*  */}
+              {/*  */}
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="venueName">Venue Name</label>
                 <input
                   type="text"
@@ -259,9 +259,9 @@ export default class Event extends Component {
                   value={currentEvent.venueName}
                   onChange={this.onChangeVenueName}
                 />
-            </div>
+              </div>
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="title">Venue Address</label>
                 <input
                   type="text"
@@ -270,20 +270,20 @@ export default class Event extends Component {
                   value={currentEvent.venueAddress}
                   onChange={this.onChangeVenueAddress}
                 />
-            </div>
+              </div>
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="dateOfEvent">Date Of Event</label>
                 <input
-                  type="text"
+                  // type="text"
                   className="form-control"
                   id="dateOfEvent"
-                  value={currentEvent.dateOfEvent}
+                  value={currentEvent.dateOfEvent.substring(0,10)}
                   onChange={this.onChangeDateOfEvent}
                 />
-            </div>
+              </div>
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="startTime">Start Time</label>
                 <input
                   type="text"
@@ -292,9 +292,9 @@ export default class Event extends Component {
                   value={currentEvent.startTime}
                   onChange={this.onChangeStartTime}
                 />
-            </div>
+              </div>
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="endTime">End Time</label>
                 <input
                   type="text"
@@ -303,9 +303,9 @@ export default class Event extends Component {
                   value={currentEvent.endTime}
                   onChange={this.onChangeEndTime}
                 />
-            </div>
+              </div>
 
-            {/*  */}
+              {/*  */}
 
               <div className="form-group">
                 <label htmlFor="description">Description</label>
@@ -327,9 +327,9 @@ export default class Event extends Component {
                   value={currentEvent.availability}
                   onChange={this.onChangeAvailability}
                 />
-            </div>
+              </div>
 
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="price">Price</label>
                 <input
                   type="text"
@@ -338,7 +338,7 @@ export default class Event extends Component {
                   value={currentEvent.price}
                   onChange={this.onChangePrice}
                 />
-            </div>
+              </div>
 
 
               <div className="form-group">

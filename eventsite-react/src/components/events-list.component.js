@@ -174,7 +174,7 @@ export default class EventsList extends Component {
                 <label>
                   <strong>Date Of Event:</strong>
                 </label>{" "}
-                {currentEvent.dateOfEvent}
+                {currentEvent.dateOfEvent.substring(0,10)}
               </div>
 
               <div>
@@ -208,7 +208,7 @@ export default class EventsList extends Component {
                 <label>
                   <strong>price:</strong>
                 </label>{" "}
-                Rs. {currentEvent.price}
+                ₹ {currentEvent.price}
               </div>
 
               <div>

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import EventDataService from "../services/event.service";
 import { TextData } from "./Textfield";
-import {Formik , Form} from "formik"
+import { Formik, Form } from "formik"
+import "date-fns";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class AddEvent extends Component {
   constructor(props) {
@@ -30,10 +33,14 @@ export default class AddEvent extends Component {
       availability: 0,
       price: "",
       published: false,
+      show: false,
+      date: "",
 
       submitted: false
     };
   }
+
+ 
 
   onChangeTitle(e) {
     this.setState({
@@ -59,9 +66,9 @@ export default class AddEvent extends Component {
     });
   }
 
-  onChangeDateOfEvent(e) {
+  onChangeDateOfEvent(dateOfEvent) {
     this.setState({
-      dateOfEvent: e.target.value
+      dateOfEvent
     });
   }
 
@@ -143,6 +150,8 @@ export default class AddEvent extends Component {
     });
   }
 
+
+
   render() {
     return (
       <div className="submit-form">
@@ -155,91 +164,95 @@ export default class AddEvent extends Component {
           </div>
         ) : (
           <div>
-              <Formik initialValues={this.state} onSubmit={this.saveEvent}>
-                <div>
-                  <Form >
-                    <TextData control='input' type="text" className="form-control" label="Event Name"
-                      id="title"
-                      required
-                      value={this.state.title}
-                      onChange={this.onChangeTitle}
-                      name="title" />
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="venueName"
-                      required
-                      value={this.state.venueName}
-                      onChange={this.onChangeVenueName}
-                      name="venueName"
-                      label="Venue Name" />
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="venueName"
-                      required
-                      label= 'Venue Address'
-                      value={this.state.venueAddress}
-                      onChange={this.onChangeVenueAddress}
-                      name="venueAddress" />
-                      <hr/>
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="dateOfEvent"
-                      required
-                      label='Date of event'
-                      value={this.state.dateOfEvent}
-                      onChange={this.onChangeDateOfEvent}
-                      name="dateOfEvent" />
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="startTime"
-                      required
-                      label='Start Time'
-                      value={this.state.startTime}
-                      onChange={this.onChangeStartTime}
-                      name="startTime" />
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="endTime"
-                      required
-                      label='End Time'
-                      value={this.state.endTime}
-                      onChange={this.onChangeEndTime}
-                      name="endTime" />
-                      <hr/>
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="description"
-                      required
-                      label='About The Event'
-                      value={this.state.description}
-                      onChange={this.onChangeDescription}
-                      name="description" />
-                      <hr/>
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="availability"
-                      required
-                      label='Availability'
-                      value={this.state.availability}
-                      onChange={this.onChangeAvailability}
-                      name="availability" />
-                    <TextData control='input' type="text"
-                      className="form-control"
-                      id="price"
-                      required
-                      label='Price'
-                      value={this.state.price}
-                      onChange={this.onChangePrice}
-                      name="price" />
-                      <hr/>
-                    <button type='submit' className="btn btn-success">Submit</button>
-                  </Form>
-                </div>
-              </Formik>
+            <Formik initialValues={this.state} onSubmit={this.saveEvent}>
+              <div>
+                <Form >
+                  <TextData control='input' type="text" className="form-control" label="Event Name"
+                    id="title"
+                    required
+                    value={this.state.title}
+                    onChange={this.onChangeTitle}
+                    name="title" />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="venueName"
+                    required
+                    value={this.state.venueName}
+                    onChange={this.onChangeVenueName}
+                    name="venueName"
+                    label="Venue Name" />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="venueName"
+                    required
+                    label='Venue Address'
+                    value={this.state.venueAddress}
+                    onChange={this.onChangeVenueAddress}
+                    name="venueAddress" />
+                  <hr />
+                  <label>Date of event</label>
+                  <DatePicker
+                    className="form-control"
+                    id="dateOfEvent"
+                    required
+                    value={this.state.dateOfEvent}
+                    selected={this.state.dateOfEvent}
+                    onChange={this.onChangeDateOfEvent}
+                    name="dateOfEvent"
+                    dateFormat="dd/MM/yyyy"
+                    minDate={new Date()}
+                    />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="startTime"
+                    required
+                    label='Start Time'
+                    value={this.state.startTime}
+                    onChange={this.onChangeStartTime}
+                    name="startTime" />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="endTime"
+                    required
+                    label='End Time'
+                    value={this.state.endTime}
+                    onChange={this.onChangeEndTime}
+                    name="endTime" />
+                  <hr />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="description"
+                    required
+                    label='About The Event'
+                    value={this.state.description}
+                    onChange={this.onChangeDescription}
+                    name="description" />
+                  <hr />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="availability"
+                    required
+                    label='Availability'
+                    value={this.state.availability}
+                    onChange={this.onChangeAvailability}
+                    name="availability" />
+                  <TextData control='input' type="text"
+                    className="form-control"
+                    id="price"
+                    required
+                    label='Price'
+                    value={this.state.price}
+                    onChange={this.onChangePrice}
+                    name="price" />
+                  <hr />
+                  <button type='submit' className="btn btn-success">Submit</button>
+                </Form>
+              </div>
+            </Formik>
           </div>
         )}
       </div>
-      
+
     );
   }
 }

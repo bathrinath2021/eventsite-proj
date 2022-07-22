@@ -199,12 +199,11 @@ export default class EventsUserList extends Component {
                       <td>{currentEvent.title}</td>
                       <td>{currentEvent.venueName}</td>
                       <td>{currentEvent.venueAddress}</td>
-                      <td>{currentEvent.dateOfEvent}</td>
+                      <td>{currentEvent.dateOfEvent.substring(0,10)}</td>
                       <td>{currentEvent.startTime}</td>
                       <td>{currentEvent.endTime}</td>
                       <td>{currentEvent.description}</td>
-                      {/* <td>{currentEvent.availability}</td> */}
-                      <td>Rs.{currentEvent.price}</td>
+                      <td> {currentEvent.price}</td>
                       <td>
                         {currentEvent.booked ? (
                           <button
